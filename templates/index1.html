@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+     <table border="1">
+         <form action="/index1/" method="post">
+             {% csrf_token %}
+             <p>
+                 <label>name:</label>
+                 <input type="text" name="name">
+             </p>
+             <p>
+                 <label>password:</label>
+                 <input type="text" name="password">
+             </p>
+             <p>
+                 <input type="submit" value="submit">
+             </p>
+         </form>
+         <thead>
+             <tr>
+                 <td>用户名</td>
+                 <td>密码</td>
+             </tr>
+         </thead>
+             <!-- html里要写if或for等语句时用括号加百分号,调用变量时用两个大括号 -->
+         {% for line in form %}
+             <tr>
+                 <td>{{ line.name }}</td>
+                 <td>{{ line.password }}</td>
+             </tr>
+         {% endfor %}
+     </table>
+     {{ string }}
+</body>
+</html>
